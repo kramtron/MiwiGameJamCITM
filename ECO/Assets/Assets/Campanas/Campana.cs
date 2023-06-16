@@ -13,22 +13,27 @@ public class Campana : MonoBehaviour
     }
 
     public GameObject hiddenObject;
+    public GameObject player;
+    private Rigidbody playerRB;
 
 
     private bool hit;
     private Note note;
 
-    private SphereCollider freezeCollider;
     private Light campana;
 
+    [Header("Attraction")]
+    [SerializeField] private float attractionForce = 20f;
+    private float multiplier = 100f;
+
+    [Header("Timer")]
     private float hitTimer;
-    [SerializeField] float activeTime;
+    [SerializeField] private float activeTime = 2f;
     // Start is called before the first frame update
     void Start()
     {
         campana = GetComponentInChildren<Light>();
-        freezeCollider = GetComponent<SphereCollider>();
-
+        playerRB = player.GetComponent<Rigidbody>();
 
         campana.enabled = false;
     }
@@ -68,14 +73,10 @@ public class Campana : MonoBehaviour
                 }
                 break;
             case Note.MI:
-                if (freezeCollider.gameObject.activeSelf && hitTimer > activeTime)
+                if (hit)
                 {
-                    freezeCollider.gameObject.SetActive(false);
-                }
-                else if (hit)
-                {
-                    hitTimer += Time.deltaTime;
-                    freezeCollider.gameObject.SetActive(true);
+                    playerRB.AddForce((transform.position - player.transform.position).normalized * attractionForce * multiplier, ForceMode.Impulse);
+                    hit = false;
                 }
                 break;
         }
@@ -85,16 +86,19 @@ public class Campana : MonoBehaviour
     {
         if (collision.gameObject.tag == "Do")
         {
+            Debug.Log("Do hit");
             hit = true;
             note = Note.DO;
         }
         else if (collision.gameObject.tag == "Re")
         {
+            Debug.Log("Re hit");
             hit = true;
             note = Note.RE;
         }
         else if (collision.gameObject.tag == "Mi")
         {
+            Debug.Log("Mi hit");
             hit = true;
             note = Note.MI;
         }

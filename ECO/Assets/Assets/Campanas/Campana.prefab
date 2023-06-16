@@ -211,7 +211,6 @@ GameObject:
   m_Component:
   - component: {fileID: 374648230050894629}
   - component: {fileID: 1420014926799945437}
-  - component: {fileID: 6922732870869517344}
   - component: {fileID: 7178180544459606398}
   m_Layer: 0
   m_Name: Campana
@@ -235,7 +234,7 @@ Transform:
   - {fileID: 456670383834527940}
   - {fileID: 1136761980643003750}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1420014926799945437
 MonoBehaviour:
@@ -250,28 +249,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiddenObject: {fileID: 0}
-  activeTime: 0
---- !u!135 &6922732870869517344
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8823377457233209984}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 3
-  m_Center: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
+  attractionForce: 20
+  activeTime: 2
 --- !u!135 &7178180544459606398
 SphereCollider:
   m_ObjectHideFlags: 0
