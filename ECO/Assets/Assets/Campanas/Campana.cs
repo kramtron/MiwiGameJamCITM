@@ -28,6 +28,9 @@ public class Campana : MonoBehaviour
     {
         campana = GetComponentInChildren<Light>();
         freezeCollider = GetComponent<SphereCollider>();
+
+
+        campana.enabled = false;
     }
 
     // Update is called once per frame
@@ -40,42 +43,41 @@ public class Campana : MonoBehaviour
             campana.enabled = false;
         }
 
-        if(hit)
+        switch (note)
         {
-          switch(note)
-          {
             case Note.DO:
-                    if (campana.enabled)
-                    {
-                        campana.enabled = false;
-                    }
-                    else
-                    {
-                        campana.enabled = true;
-                    }
-                    break;
+                if (campana.enabled && hitTimer > activeTime)
+                {
+                    campana.enabled = false;
+                }
+                else if(hit)
+                {
+                    hitTimer += Time.deltaTime;
+                    campana.enabled = true;
+                }
+                break;
             case Note.RE:
-                    if(hiddenObject.activeSelf)
-                    {
-                        hiddenObject.SetActive(false);
-                    }
-                    else
-                    {
-                        hiddenObject.SetActive(true);
-                    }
+                if (hiddenObject.activeSelf && hitTimer > activeTime)
+                {
+                    hiddenObject.SetActive(false);
+                }
+                else if (hit)
+                {
+                    hitTimer += Time.deltaTime;
+                    hiddenObject.SetActive(true);
+                }
                 break;
             case Note.MI:
-                    if (freezeCollider.gameObject.activeSelf)
-                    {
-                        freezeCollider.gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        freezeCollider.gameObject.SetActive(true);
-                    }
+                if (freezeCollider.gameObject.activeSelf && hitTimer > activeTime)
+                {
+                    freezeCollider.gameObject.SetActive(false);
+                }
+                else if (hit)
+                {
+                    hitTimer += Time.deltaTime;
+                    freezeCollider.gameObject.SetActive(true);
+                }
                 break;
-            }
-            hitTimer += Time.deltaTime;
         }
     }
 
