@@ -20,6 +20,9 @@ public class Campana : MonoBehaviour
 
     private SphereCollider freezeCollider;
     private Light campana;
+
+    private float hitTimer;
+    [SerializeField] float activeTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,13 @@ public class Campana : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(hitTimer > activeTime)
+        {
+            hitTimer = 0;
+            hit = false;
+            campana.enabled = false;
+        }
+
         if(hit)
         {
           switch(note)
@@ -64,7 +74,27 @@ public class Campana : MonoBehaviour
                         freezeCollider.gameObject.SetActive(true);
                     }
                 break;
-          }
+            }
+            hitTimer += Time.deltaTime;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Do")
+        {
+            hit = true;
+            note = Note.DO;
+        }
+        else if (collision.gameObject.tag == "Re")
+        {
+            hit = true;
+            note = Note.RE;
+        }
+        else if (collision.gameObject.tag == "Mi")
+        {
+            hit = true;
+            note = Note.MI;
         }
     }
 }
