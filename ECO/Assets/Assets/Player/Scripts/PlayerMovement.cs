@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private KeyCode runKey;
     private bool dash;
     public Camera cam;
+   
 
     private float lastMovement;
     private void Start()
@@ -32,7 +33,9 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         PlayerInput();
-        Debug.Log(horizontalMovement);
+        
+      
+        
     }
 
     private void PlayerInput()
