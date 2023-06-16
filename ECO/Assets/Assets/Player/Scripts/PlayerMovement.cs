@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private KeyCode runKey;
     private bool dash;
     public Camera cam;
+
+    private float lastMovement;
     private void Start()
     {
         player = GetComponent<Rigidbody>();
@@ -30,20 +32,45 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         PlayerInput();
+        Debug.Log(horizontalMovement);
     }
 
     private void PlayerInput()
     {
         horizontalMovement = Input.GetAxisRaw("Horizontal");
         verticalMovement = 0;
-
         dashForceVector = transform.right * dashForce * 100;
 
+        if (horizontalMovement !=0)
+        {
+            lastMovement = horizontalMovement;
+        }
         if (Input.GetMouseButtonDown(1))
         {
-            
-            player.AddForce(dashForceVector, ForceMode.Impulse);
+            if (horizontalMovement >= 1)
+            {
+                lastMovement = horizontalMovement;
+                player.AddForce(dashForceVector, ForceMode.Impulse);
+            }
+             else if (horizontalMovement <= -1)
+            {
+                lastMovement = horizontalMovement;
 
+                player.AddForce(-dashForceVector, ForceMode.Impulse);
+            }
+            else
+            {
+                if (lastMovement >= 1)
+                {
+                    player.AddForce(dashForceVector, ForceMode.Impulse);
+
+                }
+                else
+                {
+                    player.AddForce(-dashForceVector, ForceMode.Impulse);
+
+                }
+            }
         }
         
 
