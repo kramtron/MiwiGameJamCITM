@@ -743,7 +743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: cb0ac85289ddb6545982c9e607fe6a2f, type: 2}
   muzzle: {fileID: 1052902655}
-  DoPrefab: {fileID: 826146680194336638, guid: 21c3fbf8409b292489ce389a8eb151bb, type: 3}
+  DoPrefab: {fileID: 6362365869434367734, guid: 3569301787c7bab48a8d69c3ca61945b,
+    type: 3}
   RePrefab: {fileID: 0}
   MiPrefab: {fileID: 0}
 --- !u!114 &1052902657
@@ -1268,6 +1269,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1420014926799945437, guid: ffdb2d15dba1e2244a25763303b61137,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1705728831}
     - target: {fileID: 1420014926799945437, guid: ffdb2d15dba1e2244a25763303b61137,
         type: 3}
       propertyPath: activeTime
