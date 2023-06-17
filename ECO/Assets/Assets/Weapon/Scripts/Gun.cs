@@ -6,13 +6,14 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
 
-    enum BulletType
+    public enum BulletType
     {
         Do,
         Re,
         Mi
     }
 
+    public BulletType bulletType;
 
     [SerializeField]  private GunData gunData;
     [SerializeField]  Transform muzzle;
@@ -21,10 +22,13 @@ public class Gun : MonoBehaviour
     [SerializeField]  GameObject MiPrefab;
 
     private float timeSinceLastShot;
-
     private void Start()
     {
         PlayerShoot.shootInput += Shoot;
+        PlayerShoot.changeDoInput += DoChanger;
+        PlayerShoot.changeReInput += ReChanger;
+        PlayerShoot.changeMiInput += MiChanger;
+        bulletType = BulletType.Do;
         
     }
 
@@ -33,8 +37,24 @@ public class Gun : MonoBehaviour
     {
         if (CanShoot()) 
         {
-            var bullet = Instantiate(DoPrefab, muzzle.position, muzzle.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = muzzle.forward * gunData.bulletSpeed;
+            switch (bulletType)
+            {
+                case BulletType.Do:
+                    var bulletDo = Instantiate(DoPrefab, muzzle.position, muzzle.rotation);
+                    bulletDo.GetComponent<Rigidbody>().velocity = muzzle.forward * gunData.bulletSpeed;
+                    break;
+
+                case BulletType.Re:
+                    var bulletRe = Instantiate(RePrefab, muzzle.position, muzzle.rotation);
+                    bulletRe.GetComponent<Rigidbody>().velocity = muzzle.forward * gunData.bulletSpeed;
+                    break;
+
+                case BulletType.Mi:
+                    var bulletMi = Instantiate(MiPrefab, muzzle.position, muzzle.rotation);
+                    bulletMi.GetComponent<Rigidbody>().velocity = muzzle.forward * gunData.bulletSpeed;
+                    break;
+            }
+            
           
             
             timeSinceLastShot = 0;
@@ -42,7 +62,7 @@ public class Gun : MonoBehaviour
 
         }
     }
-
+    
     
     private void Update()
     {
@@ -54,8 +74,24 @@ public class Gun : MonoBehaviour
         
     }
 
-    
-   
+    public void DoChanger()
+    {
+        bulletType = BulletType.Do;
 
-   
+    }
+    public void ReChanger()
+    {
+        bulletType = BulletType.Re;
+
+    } 
+    public void MiChanger()
+    {
+        bulletType = BulletType.Mi;
+
+    }
+
+
+
+
+
 }
