@@ -16,6 +16,7 @@ public class Campana : MonoBehaviour
     public GameObject player;
     private Rigidbody playerRB;
 
+    [SerializeField] Animator lightAnim;
 
     private bool hit;
     private Note note;
@@ -35,7 +36,7 @@ public class Campana : MonoBehaviour
         campana = GetComponentInChildren<Light>();
         playerRB = player.GetComponent<Rigidbody>();
 
-        campana.enabled = false;
+        
     }
 
     // Update is called once per frame
@@ -45,20 +46,23 @@ public class Campana : MonoBehaviour
         {
             hitTimer = 0;
             hit = false;
-            campana.enabled = false;
+            lightAnim.SetBool("Hit", false);
+
         }
 
         switch (note)
         {
             case Note.DO:
-                if (campana.enabled && hitTimer > activeTime)
+                if (hitTimer > activeTime)
                 {
-                    campana.enabled = false;
+                    lightAnim.SetBool("Hit", false);
+
                 }
                 else if(hit)
                 {
                     hitTimer += Time.deltaTime;
-                    campana.enabled = true;
+                    lightAnim.SetBool("Hit", true);
+
                 }
                 break;
             case Note.RE:

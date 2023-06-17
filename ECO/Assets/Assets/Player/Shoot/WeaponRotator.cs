@@ -26,7 +26,7 @@ public class WeaponRotator : MonoBehaviour
         var mousePos = Input.mousePosition;
         mousePos.z = 100;
         mousePos = cam.ScreenToWorldPoint(mousePos);
-        Debug.Log(mousePos);
+        //Debug.Log(mousePos);
 
         lookAngle = MathF.Atan2(mousePos.y, mousePos.x) * (360f / (MathF.PI * 2f));
 
