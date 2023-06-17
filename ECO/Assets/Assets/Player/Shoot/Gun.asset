@@ -15,5 +15,5 @@ MonoBehaviour:
   name: MusicGun
   damage: 20
   maxDistance: 200
-  fireRate: 600
+  fireRate: 200
   bulletSpeed: 20
