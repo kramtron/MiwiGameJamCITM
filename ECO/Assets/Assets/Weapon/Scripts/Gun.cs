@@ -59,10 +59,10 @@ public class Gun : MonoBehaviour
             Debug.Log("Enemigo golpeado  con Mi");
             Debug.Log(gOHited.name);
 
-            var pulseForce = gOHited.transform.right * pulseHitForce * 100;
-            Rigidbody rb = gOHited.GetComponent<Rigidbody>();
-            rb.AddForce(pulseForce, ForceMode.Impulse);
-            //rb.for
+            Rigidbody rib = gOHited.GetComponent<Rigidbody>();
+            Vector3 pulseForce = 100 * pulseHitForce * -gOHited.transform.forward;
+            rib.AddForce(pulseForce, ForceMode.Impulse);
+            
         }
     }
 
