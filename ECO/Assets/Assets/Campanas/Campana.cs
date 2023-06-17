@@ -30,6 +30,10 @@ public class Campana : MonoBehaviour
     [Header("Timer")]
     private float hitTimer;
     [SerializeField] private float activeTime = 2f;
+
+    [SerializeField] AudioSource DoHitSound;
+    [SerializeField] AudioSource ReHitSound;
+    [SerializeField] AudioSource MiHitSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,20 +64,32 @@ public class Campana : MonoBehaviour
                 }
                 else if(hit)
                 {
+                    hitTimer = 0;
+
                     hitTimer += Time.deltaTime;
                     lightAnim.SetBool("Hit", true);
+                    hit = false;
+                    DoHitSound.Play();
+
 
                 }
                 break;
             case Note.RE:
                 if (hiddenObject.activeSelf && hitTimer > activeTime)
                 {
-                    hiddenObject.SetActive(false);
+                    hiddenObject.SetActive(true);
+                    hit = false;
+
                 }
                 else if (hit)
                 {
+                    hitTimer = 0;
+
                     hitTimer += Time.deltaTime;
-                    hiddenObject.SetActive(true);
+                    hiddenObject.SetActive(false);
+                    ReHitSound.Play();
+                    hit = false;
+
                 }
                 break;
             case Note.MI:
@@ -81,9 +97,14 @@ public class Campana : MonoBehaviour
                 {
                     playerRB.AddForce((transform.position - player.transform.position).normalized * attractionForce * multiplier, ForceMode.Impulse);
                     hit = false;
+                    MiHitSound.Play();
+
                 }
                 break;
+
         }
+        hitTimer += Time.deltaTime;
+
     }
 
     private void OnCollisionEnter(Collision collision)
