@@ -52,7 +52,6 @@ public class Gun : MonoBehaviour
             Debug.Log("Enemigo golpeado  con Re");
             Debug.Log(gOHited.name);
 
-
         }
         if (bulletType == Gun.BulletType.Mi)
         {

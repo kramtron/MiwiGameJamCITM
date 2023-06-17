@@ -565,7 +565,7 @@ MonoBehaviour:
   player: {fileID: 0}
   lightAnim: {fileID: 4595192228293145655}
   attractionForce: 45
-  activeTime: 2
+  activeTime: 10
   DoHitSound: {fileID: 3473566591070967566}
   ReHitSound: {fileID: 3473566591070967566}
   MiHitSound: {fileID: 164945507438144356}

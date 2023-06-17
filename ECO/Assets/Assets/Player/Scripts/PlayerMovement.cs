@@ -30,7 +30,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private KeyCode runKey;
     private bool dash;
     public Camera cam;
-   
+
+    private float timeSinceLastDash=2f;
+    private float timeBwDash = 1f;
 
     private float lastMovement;
 
@@ -44,8 +46,11 @@ public class PlayerMovement : MonoBehaviour
         player.freezeRotation = true;
         playerCollider = GetComponent<CapsuleCollider>();
     }
+    private bool CanDash() => timeSinceLastDash > timeBwDash;
     private void Update()
     {
+        timeSinceLastDash += Time.deltaTime;
+        Debug.Log(timeSinceLastDash);
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerCollider.height / 2 + 0.1f);
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
@@ -54,13 +59,27 @@ public class PlayerMovement : MonoBehaviour
 
         ControlDrag();
         PlayerInput();
+
+
+        LastMove();
+    }
+
+    private void LastMove()
+    {
+        if (horizontalMovement != 0)
+        {
+            lastMovement = horizontalMovement;
+        }
     }
 
     private void PlayerInput()
     {
         horizontalMovement = Input.GetAxisRaw("Horizontal");
 
-        Dash();
+        if (CanDash())
+        {
+            Dash();
+        }
         
         //Se mueve a donde mira
         moveDirection = transform.right * horizontalMovement;
@@ -118,10 +137,7 @@ public class PlayerMovement : MonoBehaviour
     {
         dashForceVector = transform.right * dashForce * 100;
 
-        if (horizontalMovement != 0)
-        {
-            lastMovement = horizontalMovement;
-        }
+        
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -147,6 +163,8 @@ public class PlayerMovement : MonoBehaviour
                     player.AddForce(dashForceVector * airMovMultiplier * 2.2f, ForceMode.Impulse);
                 }
             }
+            timeSinceLastDash = 0;
+
         }
     }
 }
