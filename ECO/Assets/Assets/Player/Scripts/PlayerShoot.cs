@@ -14,7 +14,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private KeyCode DoKey;
     [SerializeField] private KeyCode ReKey;
     [SerializeField] private KeyCode MiKey;
-
+     
     void Update()
     {
         if(Input.GetMouseButton(0))
