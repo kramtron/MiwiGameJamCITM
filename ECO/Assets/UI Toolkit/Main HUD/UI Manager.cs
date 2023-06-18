@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         stats = player.GetComponent<PlayerStats>();
         escActive = false;
         hud = GetComponent<UIDocument>();
@@ -54,6 +55,8 @@ public class UIManager : MonoBehaviour
         continueButton.RegisterCallback<ClickEvent>(continueEvent);
         menuButton.RegisterCallback<ClickEvent>(menuEvent);
         exitButton.RegisterCallback<ClickEvent>(exitEvent);
+
+        DO.AddToClassList("note-active");
         Debug.Log(root.name);
     }
 

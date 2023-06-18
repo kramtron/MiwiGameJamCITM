@@ -105,6 +105,7 @@
     -unity-font: url('project://database/Assets/Assets/Fonts/Jost-Regular.ttf?fileID=12800000&guid=3da25a45c8fba35428330aca68ecd0b8&type=3#Jost-Regular');
     -unity-font-definition: initial;
     font-size: 12px;
+    -unity-font-style: bold;
 }
 
 .title {
