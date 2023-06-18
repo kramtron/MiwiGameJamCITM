@@ -6,9 +6,9 @@
                 <ui:Label tabindex="-1" text="ECO" display-tooltip-when-elided="true" />
             </ui:VisualElement>
             <ui:VisualElement name="buttons" class="buttons-center">
-                <ui:Button text="Play" display-tooltip-when-elided="true" name="play" />
-                <ui:Button text="Credits" display-tooltip-when-elided="true" name="credits" />
-                <ui:Button text="Exit" display-tooltip-when-elided="true" name="exit" />
+                <ui:Button text="PLAY" display-tooltip-when-elided="true" name="play" />
+                <ui:Button text="CREDITS" display-tooltip-when-elided="true" name="credits" />
+                <ui:Button text="EXIT" display-tooltip-when-elided="true" name="exit" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

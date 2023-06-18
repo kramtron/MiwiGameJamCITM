@@ -8,9 +8,9 @@
         <ui:VisualElement name="middle" class="middle">
             <ui:VisualElement name="center" class="center" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
                 <ui:VisualElement name="buttons-center" style="background-color: rgb(70, 70, 70); border-left-color: rgba(70, 70, 70, 0); border-right-color: rgba(70, 70, 70, 0); border-top-color: rgba(70, 70, 70, 0); border-bottom-color: rgba(70, 70, 70, 0); border-left-width: 20px; border-right-width: 20px; border-top-width: 20px; border-bottom-width: 20px;">
-                    <ui:Button text="Continue" display-tooltip-when-elided="true" name="continue" style="color: rgb(255, 255, 255);" />
-                    <ui:Button text="Back to menu" display-tooltip-when-elided="true" name="backtomenu" style="color: rgb(255, 255, 255);" />
-                    <ui:Button text="Exit" display-tooltip-when-elided="true" name="exit" style="color: rgb(255, 255, 255);" />
+                    <ui:Button text="CONTINUE" display-tooltip-when-elided="true" name="continue" style="color: rgb(255, 255, 255);" />
+                    <ui:Button text="BACK TO MENU" display-tooltip-when-elided="true" name="backtomenu" style="color: rgb(255, 255, 255);" />
+                    <ui:Button text="EXIT" display-tooltip-when-elided="true" name="exit" style="color: rgb(255, 255, 255);" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
