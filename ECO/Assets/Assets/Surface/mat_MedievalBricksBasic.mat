@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mat_MedievalBricks_01
+  m_Name: mat_MedievalBricksBasic
   m_Shader: {fileID: 4800000, guid: 0e9d5a909a1f7e84882a534d0d11e49f, type: 3}
   m_Parent: {fileID: 2100000, guid: 95b64346067cf87488898bc7c9e167ee, type: 2}
   m_ModifiedSerializedProperties: 0

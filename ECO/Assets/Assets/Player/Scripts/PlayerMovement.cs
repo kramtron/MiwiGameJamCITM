@@ -40,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float playerHeight;
     private CapsuleCollider playerCollider;
+
+
+    [SerializeField] AudioSource dashSound;
+    [SerializeField] AudioSource jumpSound;
     private void Start()
     {
         player = GetComponent<Rigidbody>();
@@ -50,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         timeSinceLastDash += Time.deltaTime;
-        Debug.Log(timeSinceLastDash);
+        
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerCollider.height / 2 + 0.1f);
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
@@ -119,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
     private void jump()
     {
         player.AddForce(transform.up * jumpForce * 1000f, ForceMode.Impulse);
+        jumpSound.Play();
     }
 
     private void ControlDrag()
@@ -163,6 +168,7 @@ public class PlayerMovement : MonoBehaviour
                     player.AddForce(dashForceVector * airMovMultiplier * 2.2f, ForceMode.Impulse);
                 }
             }
+            dashSound.Play();
             timeSinceLastDash = 0;
 
         }
