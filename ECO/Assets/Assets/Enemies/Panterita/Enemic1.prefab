@@ -31,7 +31,7 @@ Transform:
   - {fileID: 4936442779223934857}
   - {fileID: 3437559062946700250}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5237394905259462145
 GameObject:
@@ -138,13 +138,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 965174278999242457, guid: e535d7177adab204c958f050fb2a3f82,
         type: 3}
+      propertyPath: rib
+      value: 
+      objectReference: {fileID: 9150507715478368235}
+    - target: {fileID: 965174278999242457, guid: e535d7177adab204c958f050fb2a3f82,
+        type: 3}
       propertyPath: damage
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 965174278999242457, guid: e535d7177adab204c958f050fb2a3f82,
         type: 3}
+      propertyPath: enemie
+      value: 
+      objectReference: {fileID: 824017548048971049}
+    - target: {fileID: 965174278999242457, guid: e535d7177adab204c958f050fb2a3f82,
+        type: 3}
+      propertyPath: hitForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 965174278999242457, guid: e535d7177adab204c958f050fb2a3f82,
+        type: 3}
       propertyPath: attackSpeed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1243637683772231681, guid: e535d7177adab204c958f050fb2a3f82,
         type: 3}
@@ -250,6 +265,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1858584279059450344}
   m_SourcePrefab: {fileID: 100100000, guid: e535d7177adab204c958f050fb2a3f82, type: 3}
+--- !u!195 &824017548048971049 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 6107971835057895621, guid: e535d7177adab204c958f050fb2a3f82,
+    type: 3}
+  m_PrefabInstance: {fileID: 6894060629990231532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4936442779223934857 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1958321539321268837, guid: e535d7177adab204c958f050fb2a3f82,
@@ -283,3 +304,9 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 9.53
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &9150507715478368235 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2400908798775386631, guid: e535d7177adab204c958f050fb2a3f82,
+    type: 3}
+  m_PrefabInstance: {fileID: 6894060629990231532}
+  m_PrefabAsset: {fileID: 0}

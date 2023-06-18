@@ -2863,18 +2863,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798190070}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!195 &816578646 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 824017548048971049, guid: 418ae91437679c14e92ca2d0da70b99b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1135565221426158220}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &816578647 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 9150507715478368235, guid: 418ae91437679c14e92ca2d0da70b99b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1135565221426158220}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &859377900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7269,35 +7257,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1705728836}
-    - target: {fileID: 5687719223520550381, guid: 418ae91437679c14e92ca2d0da70b99b,
-        type: 3}
-      propertyPath: lookingTime
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5965127078876887861, guid: 418ae91437679c14e92ca2d0da70b99b,
-        type: 3}
-      propertyPath: rib
-      value: 
-      objectReference: {fileID: 816578647}
-    - target: {fileID: 5965127078876887861, guid: 418ae91437679c14e92ca2d0da70b99b,
-        type: 3}
-      propertyPath: enemie
-      value: 
-      objectReference: {fileID: 816578646}
     - target: {fileID: 5965127078876887861, guid: 418ae91437679c14e92ca2d0da70b99b,
         type: 3}
       propertyPath: hitForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5965127078876887861, guid: 418ae91437679c14e92ca2d0da70b99b,
-        type: 3}
-      propertyPath: jumpForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5965127078876887861, guid: 418ae91437679c14e92ca2d0da70b99b,
-        type: 3}
-      propertyPath: attackSpeed
-      value: 2
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

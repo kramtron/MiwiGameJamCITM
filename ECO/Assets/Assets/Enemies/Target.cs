@@ -124,6 +124,8 @@ public class Target : MonoBehaviour, IDamagable
         }
         else if (!wandering)
         {
+            enemie.isStopped = false;
+
             enemie.SetDestination(target.position);
             //enemie.speed = 5f;
 

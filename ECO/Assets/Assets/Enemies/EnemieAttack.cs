@@ -65,19 +65,24 @@ public class EnemieAttack : MonoBehaviour
 
     private void Attack()
     {
+        if (CanAttack())
+        {
 
-        //enemie.isStopped = true;
-        Vector3 pulseForce = 100 * hitForce * transform.forward;
-        rib.AddForce(pulseForce, ForceMode.Impulse);
+            //enemie.isStopped = true;
+            Vector3 pulseForce = 100 * hitForce * transform.forward;
+            rib.AddForce(pulseForce, ForceMode.Impulse);
+        }
         //atacando = true;
 
     }
 
     private void InRange()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().DamagePlayer(damage);
-        Debug.Log("Attacando a Player");
-        attackTimer = 0;
+        
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().DamagePlayer(damage);
+            Debug.Log("Attacando a Player");
+            attackTimer = 0;
+        
         //enemie.isStopped = false;
 
     }
