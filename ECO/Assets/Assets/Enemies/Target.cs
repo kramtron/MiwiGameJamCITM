@@ -18,7 +18,7 @@ public class Target : MonoBehaviour, IDamagable
     private Transform actualWanderPoint;
 
 
-    private bool wandering;
+    public bool wandering;
 
     [SerializeField] float lookingTime=1.5f;
     private float lookingTimer=0;
@@ -95,12 +95,13 @@ public class Target : MonoBehaviour, IDamagable
         if (other.gameObject.tag == "Player")
         {
             wandering = false;
-            var dist = Vector3.Distance(transform.position, target.position);
+           var dist = Vector3.Distance(transform.position, target.position);
 
-            if (dist < 3)
+            if (dist < 5)
             {
                 attackRange?.Invoke();
             }
+            
         }
     }
     private void OnTriggerExit(Collider other)
@@ -117,13 +118,14 @@ public class Target : MonoBehaviour, IDamagable
     {
         if (wandering)
         {
-
+            //enemie.speed = 3.5f;
             enemie.SetDestination(actualWanderPoint.position);
 
         }
         else if (!wandering)
         {
             enemie.SetDestination(target.position);
+            //enemie.speed = 5f;
 
         }
 
