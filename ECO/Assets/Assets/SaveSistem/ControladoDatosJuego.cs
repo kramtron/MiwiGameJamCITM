@@ -11,18 +11,34 @@ public class ControladoDatosJuego : MonoBehaviour
 
     public DatosJuego datosJuego = new();
 
+    private bool primeraCarga = false;
+    private int cont = 0;
+
     private void Start()
     {
         CheckPoint.saveInput += GuardarDatos;
+
     }
     private void Awake()
     {
         archivoDeGuardado = Application.dataPath + "/datosJuego.json";
         player = GameObject.FindGameObjectWithTag("Player");
+        //CargarDatos();
+
     }
 
     private void Update()
     {
+        if (!primeraCarga && cont<=5)
+        {
+            CargarDatos();
+            cont++;
+        }
+        if (cont > 5)
+        {
+            primeraCarga = true;
+
+        }
         if (Input.GetKeyDown(KeyCode.C))
         {
             CargarDatos();
