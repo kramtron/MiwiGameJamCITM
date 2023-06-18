@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2a4596a93ddbb4aaab7c3d1be532f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playScene: PlayerJump
+  playScene: PlayerShoot
 --- !u!1 &1447499003
 GameObject:
   m_ObjectHideFlags: 0
