@@ -61,9 +61,10 @@ public class ControladoDatosJuego : MonoBehaviour
             datosJuego = JsonUtility.FromJson<DatosJuego>(contenido);
 
             Debug.Log("Posicion Jugador : " + datosJuego.playerPos);
+            SceneManager.LoadScene(datosJuego.sceneName);
+
             player.transform.position = datosJuego.playerPos;
             player.GetComponent<PlayerStats>().hp = datosJuego.playerHp;
-            SceneManager.LoadScene(datosJuego.sceneName);
         }
         else
         {
