@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine.AI;
 
 public class Target : MonoBehaviour, IDamagable
 {
-
+    public static Action attackRange;
 
     public NavMeshAgent enemie;
     [SerializeField] Transform target;
@@ -79,9 +80,28 @@ public class Target : MonoBehaviour, IDamagable
         if (other.gameObject.tag == "Player")
         {
             wandering = false;
+            var dist = Vector3.Distance(transform.position, target.position);
+
+            if (dist < 3)
+            {
+                attackRange?.Invoke();
+            }
         }
 
         
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            wandering = false;
+            var dist = Vector3.Distance(transform.position, target.position);
+
+            if (dist < 3)
+            {
+                attackRange?.Invoke();
+            }
+        }
     }
     private void OnTriggerExit(Collider other)
     {

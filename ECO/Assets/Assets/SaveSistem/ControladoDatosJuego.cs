@@ -29,7 +29,7 @@ public class ControladoDatosJuego : MonoBehaviour
 
     private void Update()
     {
-        if (!primeraCarga && cont<=5)
+        /*if (!primeraCarga && cont<=5)
         {
             CargarDatos();
             cont++;
@@ -38,7 +38,7 @@ public class ControladoDatosJuego : MonoBehaviour
         {
             primeraCarga = true;
 
-        }
+        }*/
         if (Input.GetKeyDown(KeyCode.C))
         {
             CargarDatos();
