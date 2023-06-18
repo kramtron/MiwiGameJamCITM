@@ -9,4 +9,5 @@ public class DatosJuego
 
     public Vector3 playerPos;
     public int playerHp;
+    public string sceneName;
 }

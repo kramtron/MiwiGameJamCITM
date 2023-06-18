@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControladoDatosJuego : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class ControladoDatosJuego : MonoBehaviour
             Debug.Log("Posicion Jugador : " + datosJuego.playerPos);
             player.transform.position = datosJuego.playerPos;
             player.GetComponent<PlayerStats>().hp = datosJuego.playerHp;
+            SceneManager.LoadScene(datosJuego.sceneName);
         }
         else
         {
@@ -74,13 +76,15 @@ public class ControladoDatosJuego : MonoBehaviour
         DatosJuego nuevosDatos = new()
         {
             playerPos = player.transform.position,
-            playerHp = player.GetComponent<PlayerStats>().hp
+            playerHp = player.GetComponent<PlayerStats>().hp,
+            sceneName = SceneManager.GetActiveScene().name
 
         };
+
         string cadenaJSON = JsonUtility.ToJson(nuevosDatos);
         File.WriteAllText(archivoDeGuardado, cadenaJSON);
 
-        Debug.Log("File Saved");
+        Debug.Log("File Saved and scene :" + SceneManager.GetActiveScene().name + "saved");
 
     }
 }
