@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -25,6 +26,9 @@ public class UIManager : MonoBehaviour
     VisualElement buttonsHolder;
 
     ProgressBar healthBar;
+
+    public static Action saveEvent;
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -93,6 +97,8 @@ public class UIManager : MonoBehaviour
     }
     private void exitEvent(ClickEvent ev)
     {
+        saveEvent?.Invoke();
+
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

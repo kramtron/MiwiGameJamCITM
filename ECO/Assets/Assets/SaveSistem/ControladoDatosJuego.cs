@@ -18,6 +18,9 @@ public class ControladoDatosJuego : MonoBehaviour
     {
         CheckPoint.saveInput += GuardarDatos;
 
+        UIManager.saveEvent += GuardarDatos;
+
+        MainMenuManager.cargarEvent += CargarDatos;
     }
     private void Awake()
     {
