@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
 
         if(collision.gameObject.tag == "Enemie")
         {
-            Gun gunHit = GameObject.Find("Weapon").GetComponent<Gun>();
+            var gunHit = GameObject.Find("Weapon").GetComponent<Gun>();
             gunHit.gOHited = collision.gameObject;
 
             enemieHited?.Invoke();

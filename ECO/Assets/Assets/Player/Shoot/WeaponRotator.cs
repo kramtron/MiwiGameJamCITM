@@ -33,7 +33,7 @@ public class WeaponRotator : MonoBehaviour
 
         
 
-        Debug.Log(mousePos);
+        //Debug.Log(mousePos);
 
         lookAngle = MathF.Atan2(mousePos.y, mousePos.x) * (360f / (MathF.PI * 2f));
         lookAngle = (lookAngle + 360f) % 360f;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-
+ 
     public enum BulletType
     {
         Do,
@@ -15,16 +15,29 @@ public class Gun : MonoBehaviour
 
     public BulletType bulletType;
 
+
+
     [SerializeField]  private GunData gunData;
     [SerializeField]  Transform muzzle;
     [SerializeField]  GameObject DoPrefab;
     [SerializeField]  GameObject RePrefab;
     [SerializeField]  GameObject MiPrefab;
 
+
+
     public GameObject gOHited;
 
+
+
     public float pulseHitForce;
+
+
     private float timeSinceLastShot;
+
+    [SerializeField] AudioSource shootDoSound;
+    [SerializeField] AudioSource shootReSound;
+    [SerializeField] AudioSource shootMiSound;
+
     private void Start()
     {
         PlayerShoot.shootInput += Shoot;
@@ -75,16 +88,22 @@ public class Gun : MonoBehaviour
                 case BulletType.Do:
                     var bulletDo = Instantiate(DoPrefab, muzzle.position, muzzle.rotation);
                     bulletDo.GetComponent<Rigidbody>().velocity = muzzle.forward * gunData.bulletSpeed;
+                    shootDoSound.Play();
+
                     break;
 
                 case BulletType.Re:
                     var bulletRe = Instantiate(RePrefab, muzzle.position, muzzle.rotation);
                     bulletRe.GetComponent<Rigidbody>().velocity = muzzle.forward * gunData.bulletSpeed;
+                    shootReSound.Play();
+
                     break;
 
                 case BulletType.Mi:
                     var bulletMi = Instantiate(MiPrefab, muzzle.position, muzzle.rotation);
                     bulletMi.GetComponent<Rigidbody>().velocity = muzzle.forward * gunData.bulletSpeed;
+                    shootMiSound.Play();
+
                     break;
             }
             
