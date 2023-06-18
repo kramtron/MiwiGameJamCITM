@@ -15,7 +15,7 @@ public class EnemieAttack : MonoBehaviour
     [SerializeField] Rigidbody rib;
 
     [SerializeField] NavMeshAgent enemie;
-    [SerializeField] int jumpForce;
+    [SerializeField] int hitForce;
     private bool atacando = false;
 
     // Start is called before the first frame update
@@ -66,10 +66,10 @@ public class EnemieAttack : MonoBehaviour
     private void Attack()
     {
 
-        enemie.isStopped = true;    
-        Vector3 pulseForce = 100 * jumpForce * transform.forward;
+        //enemie.isStopped = true;
+        Vector3 pulseForce = 100 * hitForce * transform.forward;
         rib.AddForce(pulseForce, ForceMode.Impulse);
-        atacando = true;
+        //atacando = true;
 
     }
 
@@ -78,7 +78,7 @@ public class EnemieAttack : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().DamagePlayer(damage);
         Debug.Log("Attacando a Player");
         attackTimer = 0;
-        enemie.isStopped = false;
+        //enemie.isStopped = false;
 
     }
 

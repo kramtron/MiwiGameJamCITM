@@ -7226,13 +7226,18 @@ PrefabInstance:
       objectReference: {fileID: 816578646}
     - target: {fileID: 5965127078876887861, guid: 418ae91437679c14e92ca2d0da70b99b,
         type: 3}
+      propertyPath: hitForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965127078876887861, guid: 418ae91437679c14e92ca2d0da70b99b,
+        type: 3}
       propertyPath: jumpForce
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5965127078876887861, guid: 418ae91437679c14e92ca2d0da70b99b,
         type: 3}
       propertyPath: attackSpeed
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
