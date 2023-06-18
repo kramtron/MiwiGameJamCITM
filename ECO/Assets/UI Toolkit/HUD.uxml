@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Style.uss?fileID=7433441132597879392&amp;guid=37488f12d04e32a40b9c6abc14b93438&amp;type=3#Style" />
+    <ui:VisualElement name="container" class="container" style="background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="top" class="top" style="background-color: rgba(0, 0, 0, 0);">
+            <ui:ProgressBar value="80" />
+        </ui:VisualElement>
+        <ui:VisualElement name="middle" class="middle" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
+        <ui:VisualElement name="down" class="down" style="background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="Do" class="note" style="background-color: rgb(202, 37, 176);" />
+            <ui:VisualElement name="Re" class="note" style="background-color: rgb(234, 238, 62);" />
+            <ui:VisualElement name="Mi" class="note" style="background-color: rgb(24, 129, 166);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,104 @@
+.container {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.down {
+    align-items: flex-end;
+    width: 100%;
+    height: 10%;
+    max-height: none;
+    background-color: rgb(132, 132, 132);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-self: center;
+    flex-wrap: nowrap;
+}
+
+.note {
+    min-width: 8%;
+    min-height: 100%;
+    max-width: none;
+    justify-content: flex-start;
+    max-height: 100%;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+
+.top {
+    width: 100%;
+    height: 15%;
+    align-items: flex-start;
+    justify-content: flex-end;
+    align-self: auto;
+    margin-left: 20px;
+}
+
+.note-active {
+    min-width: 10%;
+    min-height: 120%;
+}
+
+.middle {
+    height: 100%;
+    width: 100%;
+}
+
+.unity-progress-bar {
+    min-width: 150px;
+    background-color: rgb(236, 14, 14);
+    border-left-color: rgb(106, 15, 15);
+    border-right-color: rgb(106, 15, 15);
+    border-top-color: rgb(106, 15, 15);
+    border-bottom-color: rgb(106, 15, 15);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.center {
+    width: 50%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.container-center {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.buttons-center {
+    width: 50%;
+    align-items: stretch;
+}
+
+.unity-text-element {
+}
+
+.unity-button {
+}
+
+.title {
+    width: 100%;
+    height: 30%;
+    margin-top: 100px;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e7081d85b89a1ee49b50863222b1d6e4&type=3#NotInter-Regular');
+    color: rgb(255, 255, 255);
+    font-size: 70px;
+    -unity-text-align: upper-center;
+    text-overflow: clip;
+    -unity-font-style: bold;
+}
