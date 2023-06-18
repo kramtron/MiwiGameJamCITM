@@ -3,7 +3,7 @@
     <ui:VisualElement name="container" class="container" style="background-color: rgba(0, 0, 0, 0);">
         <ui:VisualElement name="separation" />
         <ui:VisualElement name="top" class="top" style="background-color: rgba(0, 0, 0, 0);">
-            <ui:ProgressBar value="80" />
+            <ui:ProgressBar value="80" name="healthbar" />
         </ui:VisualElement>
         <ui:VisualElement name="middle" class="middle">
             <ui:VisualElement name="center" class="center" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">

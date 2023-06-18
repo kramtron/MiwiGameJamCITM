@@ -8,6 +8,9 @@ public class UIManager : MonoBehaviour
 {
     UIDocument hud;
 
+    public GameObject player;
+    PlayerStats stats;
+
     private VisualElement DO;
     private VisualElement RE;
     private VisualElement MI;
@@ -20,9 +23,12 @@ public class UIManager : MonoBehaviour
     Button exitButton;
 
     VisualElement buttonsHolder;
+
+    ProgressBar healthBar;
     // Start is called before the first frame update
     void OnEnable()
     {
+        stats = player.GetComponent<PlayerStats>();
         escActive = false;
         hud = GetComponent<UIDocument>();
         VisualElement root = hud.rootVisualElement;
@@ -38,6 +44,8 @@ public class UIManager : MonoBehaviour
         continueButton = root.Q<Button>("continue");
         menuButton = root.Q<Button>("backtomenu");
         exitButton = root.Q<Button>("exit");
+
+        healthBar = root.Q<ProgressBar>("healthbar");
 
         continueButton.RegisterCallback<ClickEvent>(continueEvent);
         menuButton.RegisterCallback<ClickEvent>(menuEvent);
@@ -71,6 +79,8 @@ public class UIManager : MonoBehaviour
             RE.RemoveFromClassList("note-active");
             DO.RemoveFromClassList("note-active");
         }
+
+        healthBar.value = stats.hp;
     }
 
     private void continueEvent(ClickEvent ev)
