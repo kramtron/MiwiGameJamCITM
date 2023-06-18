@@ -21,6 +21,9 @@ public class Gun : MonoBehaviour
     [SerializeField]  GameObject RePrefab;
     [SerializeField]  GameObject MiPrefab;
 
+    public GameObject gOHited;
+
+    public float pulseHitForce;
     private float timeSinceLastShot;
     private void Start()
     {
@@ -28,8 +31,38 @@ public class Gun : MonoBehaviour
         PlayerShoot.changeDoInput += DoChanger;
         PlayerShoot.changeReInput += ReChanger;
         PlayerShoot.changeMiInput += MiChanger;
+        Bullet.enemieHited += EnemieHited;
         bulletType = BulletType.Do;
         
+    }
+
+    private void EnemieHited()
+    {
+        if (bulletType == Gun.BulletType.Do)
+        {
+            Debug.Log("Enemigo golpeado  con Do");
+            Debug.Log(gOHited.name);
+
+            IDamagable damagable = gOHited.transform.GetComponent<IDamagable>();
+            damagable?.Damage(gunData.damage);
+
+        }
+        if (bulletType == Gun.BulletType.Re)
+        {
+            Debug.Log("Enemigo golpeado  con Re");
+            Debug.Log(gOHited.name);
+
+        }
+        if (bulletType == Gun.BulletType.Mi)
+        {
+            Debug.Log("Enemigo golpeado  con Mi");
+            Debug.Log(gOHited.name);
+
+            Rigidbody rib = gOHited.GetComponent<Rigidbody>();
+            Vector3 pulseForce = 100 * pulseHitForce * -gOHited.transform.forward;
+            rib.AddForce(pulseForce, ForceMode.Impulse);
+            
+        }
     }
 
     private bool CanShoot() =>  timeSinceLastShot > 1f / (gunData.fireRate / 60);
