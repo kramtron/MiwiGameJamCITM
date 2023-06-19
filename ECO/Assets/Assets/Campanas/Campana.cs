@@ -17,6 +17,7 @@ public class Campana : MonoBehaviour
     private Rigidbody playerRB;
 
     [SerializeField] Animator lightAnim;
+    [SerializeField] Animator bellAnim;
 
     private bool hit;
     private Note note;
@@ -54,6 +55,11 @@ public class Campana : MonoBehaviour
 
         }
 
+        if (hit == false)
+        {
+            bellAnim.SetBool("Hit", false);
+
+        }
         switch (note)
         {
             case Note.DO:
@@ -70,6 +76,7 @@ public class Campana : MonoBehaviour
                     lightAnim.SetBool("Hit", true);
                     hit = false;
                     DoHitSound.Play();
+                    bellAnim.SetBool("Hit", true);
 
 
                 }
@@ -81,7 +88,7 @@ public class Campana : MonoBehaviour
                     hit = false;
 
                 }
-                else if (hit)
+                else if (hit )
                 {
                     hitTimer = 0;
 
@@ -89,6 +96,7 @@ public class Campana : MonoBehaviour
                     hiddenObject.SetActive(false);
                     ReHitSound.Play();
                     hit = false;
+                    bellAnim.SetBool("Hit", true);
 
                 }
                 break;
@@ -98,12 +106,15 @@ public class Campana : MonoBehaviour
                     playerRB.AddForce((transform.position - player.transform.position).normalized * attractionForce * multiplier, ForceMode.Impulse);
                     hit = false;
                     MiHitSound.Play();
+                    bellAnim.SetBool("Hit", true);
+
 
                 }
                 break;
 
         }
         hitTimer += Time.deltaTime;
+        
 
     }
 
