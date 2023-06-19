@@ -13,7 +13,7 @@ public class Campana : MonoBehaviour
     }
 
     public GameObject hiddenObject;
-    public GameObject player;
+    private GameObject player;
     private Rigidbody playerRB;
 
     [SerializeField] Animator lightAnim;
@@ -25,7 +25,7 @@ public class Campana : MonoBehaviour
     private Light campana;
 
     [Header("Attraction")]
-    [SerializeField] private float attractionForce = 20f;
+    [SerializeField] private float attractionForce = 45f;
     private float multiplier = 100f;
 
     [Header("Timer")]
@@ -35,13 +35,22 @@ public class Campana : MonoBehaviour
     [SerializeField] AudioSource DoHitSound;
     [SerializeField] AudioSource ReHitSound;
     [SerializeField] AudioSource MiHitSound;
+
+    Vector3 bellPos;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         campana = GetComponentInChildren<Light>();
         playerRB = player.GetComponent<Rigidbody>();
 
-        
+        Transform temp;
+        temp = gameObject.transform;
+        while(temp.GetComponentInParent<Transform>() != null)
+        {
+            temp = transform.parent;
+            bellPos += temp.position;
+        }
     }
 
     // Update is called once per frame
@@ -103,7 +112,7 @@ public class Campana : MonoBehaviour
             case Note.MI:
                 if (hit)
                 {
-                    playerRB.AddForce((transform.position - player.transform.position).normalized * attractionForce * multiplier, ForceMode.Impulse);
+                    playerRB.AddForce((bellPos - player.transform.position).normalized * attractionForce * multiplier, ForceMode.Impulse);
                     hit = false;
                     MiHitSound.Play();
                     bellAnim.SetBool("Hit", true);
