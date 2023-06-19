@@ -543,7 +543,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9162fefab6e673049b3a70151e1b8289,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9162fefab6e673049b3a70151e1b8289,
         type: 3}
@@ -825,7 +825,7 @@ MonoBehaviour:
   attractionForce: 20
   activeTime: 2
   DoHitSound: {fileID: 1331846022742780046}
-  ReHitSound: {fileID: 6873165820809826134}
+  ReHitSound: {fileID: 1331846022742780046}
   MiHitSound: {fileID: 6873165820809826134}
 --- !u!4 &544133971062179403 stripped
 Transform:

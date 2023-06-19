@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &19468982 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1331846022742780046, guid: 4f687897ff71f324ab7550642b47960d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4460667594332174380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &25892076
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66175421}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.276, y: 7.88, z: 4.3}
+  m_LocalPosition: {x: 35.276, y: 7.88, z: 3.29}
   m_LocalScale: {x: 240.59312, y: 54.31994, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7548,6 +7554,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1705728831}
+    - target: {fileID: 151426757323342150, guid: 4f687897ff71f324ab7550642b47960d,
+        type: 3}
+      propertyPath: ReHitSound
+      value: 
+      objectReference: {fileID: 19468982}
     - target: {fileID: 151426757323342150, guid: 4f687897ff71f324ab7550642b47960d,
         type: 3}
       propertyPath: hiddenObject
