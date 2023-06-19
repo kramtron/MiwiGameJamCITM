@@ -18,6 +18,9 @@ public class EnemieAttack : MonoBehaviour
     [SerializeField] int hitForce;
     private bool atacando = false;
 
+
+    [SerializeField] Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +32,7 @@ public class EnemieAttack : MonoBehaviour
     void Update()
     {
         attackTimer += Time.deltaTime;
-        /*if (atacando)
-        {
-            enemie.isStopped = false;
-            atacando = false;
-        }*/
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,14 +64,21 @@ public class EnemieAttack : MonoBehaviour
 
     private void Attack()
     {
+        if (atacando && !CanAttack())
+        {
+            anim.SetBool("Attack", false);
+            atacando = false;
+
+        }
         if (CanAttack())
         {
-
+            anim.SetBool("Attack", true);
             //enemie.isStopped = true;
             Vector3 pulseForce = 100 * hitForce * transform.forward;
             rib.AddForce(pulseForce, ForceMode.Impulse);
+            atacando = true;
+
         }
-        //atacando = true;
 
     }
 
@@ -82,7 +88,8 @@ public class EnemieAttack : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>().DamagePlayer(damage);
             Debug.Log("Attacando a Player");
             attackTimer = 0;
-        
+            
+
         //enemie.isStopped = false;
 
     }

@@ -23,12 +23,15 @@ public class Target : MonoBehaviour, IDamagable
     [SerializeField] float lookingTime=1.5f;
     private float lookingTimer=0;
 
+    private bool dead = false;
+    private float deadTimer = 0;
+    [SerializeField] Animator anim;
     public void Damage(float damage)
     {
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            dead = true;
         }
     }
 
@@ -39,11 +42,25 @@ public class Target : MonoBehaviour, IDamagable
         wandering = true;
        
     }
+
+    [Obsolete]
     private void Update()
     {
         if (wandering)
         {
             Wander();
+        }
+        if (dead)
+        {
+            deadTimer += Time.deltaTime;
+            anim.SetBool("Dead", true);
+            enemie.isStopped = true;
+            if (deadTimer >= 5)
+            {
+                Destroy(gameObject);
+
+            }
+
         }
     }
     private void Wander()
@@ -79,12 +96,15 @@ public class Target : MonoBehaviour, IDamagable
     {
         if (other.gameObject.tag == "Player")
         {
-            wandering = false;
-            var dist = Vector3.Distance(transform.position, target.position);
-
-            if (dist < 3)
+            if (!dead)
             {
-                attackRange?.Invoke();
+                wandering = false;
+                var dist = Vector3.Distance(transform.position, target.position);
+
+                if (dist < 6)
+                {
+                    attackRange?.Invoke();
+                }
             }
         }
 
@@ -94,12 +114,16 @@ public class Target : MonoBehaviour, IDamagable
     {
         if (other.gameObject.tag == "Player")
         {
-            wandering = false;
-           var dist = Vector3.Distance(transform.position, target.position);
-
-            if (dist < 5)
+            if (!dead)
             {
-                attackRange?.Invoke();
+                wandering = false;
+                var dist = Vector3.Distance(transform.position, target.position);
+                anim.SetBool("Attack", false);
+
+                if (dist < 7)
+                {
+                    attackRange?.Invoke();
+                }
             }
             
         }
@@ -116,20 +140,28 @@ public class Target : MonoBehaviour, IDamagable
 
     private void FixedUpdate()
     {
-        if (wandering)
+        if (!dead)
         {
-            //enemie.speed = 3.5f;
-            enemie.SetDestination(actualWanderPoint.position);
+            if (wandering)
+            {
+                //enemie.speed = 3.5f;
+                enemie.SetDestination(actualWanderPoint.position);
 
+            }
+            else if (!wandering)
+            {
+                enemie.isStopped = false;
+
+                enemie.SetDestination(target.position);
+                //enemie.speed = 5f;
+
+            }
         }
-        else if (!wandering)
+        else
         {
-            enemie.isStopped = false;
-
-            enemie.SetDestination(target.position);
-            //enemie.speed = 5f;
-
+            enemie.SetDestination(transform.position);
         }
+        
 
     }
 
