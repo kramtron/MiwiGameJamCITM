@@ -35,13 +35,18 @@ public class Campana : MonoBehaviour
     [SerializeField] AudioSource DoHitSound;
     [SerializeField] AudioSource ReHitSound;
     [SerializeField] AudioSource MiHitSound;
+    private Vector3 bellPos;
+
     // Start is called before the first frame update
     void Start()
     {
         campana = GetComponentInChildren<Light>();
         playerRB = player.GetComponent<Rigidbody>();
-
-        
+        //No preguntes ni por que ni como pero esto va bien
+        bellPos = transform.position;
+        bellPos -= transform.parent.position;
+        bellPos += transform.parent.parent.position;
+        bellPos += Vector3.right * 10.5f;
     }
 
     // Update is called once per frame
