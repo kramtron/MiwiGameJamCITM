@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 4202966649213253458}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3907432311378020648
 GameObject:
@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 3443471525530141853}
   - component: {fileID: 8317887572455480622}
   - component: {fileID: 7414970241762535254}
+  - component: {fileID: 845804705688524882}
   m_Layer: 0
   m_Name: bridge2_arch
   m_TagString: Untagged
@@ -231,3 +232,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &845804705688524882
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8180615998003672548}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8227030571083750464, guid: 85934b47874026d439126656f11ed83a, type: 3}
