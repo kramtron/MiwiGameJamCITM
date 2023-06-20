@@ -1,36 +1,43 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Target : MonoBehaviour, IDamagable
+public class InsectScript : MonoBehaviour, IDamagable
 {
-    public static Action attackRange;
+    
 
     public NavMeshAgent enemie;
     [SerializeField] Transform target;
     [SerializeField] float health = 100f;
+    [SerializeField] float attackSpeed = 4;
+    [SerializeField] float attackSpeedTimer = 0;
 
     [SerializeField] Transform temp;
     [SerializeField] Transform wanderPoint1;
     [SerializeField] Transform wanderPoint2;
     private Transform actualWanderPoint;
+    [SerializeField] GameObject bulletPreFab;
 
 
     public bool wandering;
 
-    [SerializeField] float lookingTime=1.5f;
-    private float lookingTimer=0;
+    [SerializeField] float lookingTime = 1.5f;
+    private float lookingTimer = 0;
 
     private bool dead = false;
     private float deadTimer = 0;
     [SerializeField] Animator anim;
+
+    [SerializeField] float bulletSpeed = 7;
     public void Damage(float damage)
     {
         health -= damage;
         if (health <= 0)
         {
+           
+            var rb = gameObject.GetComponent<Rigidbody>();
+            rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
             dead = true;
         }
     }
@@ -40,10 +47,11 @@ public class Target : MonoBehaviour, IDamagable
         actualWanderPoint = wanderPoint1;
 
         wandering = true;
-       
+        attackSpeedTimer = attackSpeed;
+
     }
 
-    [Obsolete]
+    
     private void Update()
     {
         if (wandering)
@@ -62,7 +70,9 @@ public class Target : MonoBehaviour, IDamagable
             }
 
         }
+        attackSpeedTimer += Time.deltaTime;
     }
+    private bool CanAttack() => attackSpeedTimer >= attackSpeed;
     private void Wander()
     {
 
@@ -100,15 +110,24 @@ public class Target : MonoBehaviour, IDamagable
             {
                 wandering = false;
                 var dist = Vector3.Distance(transform.position, target.position);
+                anim.SetBool("Attack", false);
 
-                if (dist < 6)
+                if (dist < 8 && CanAttack())
                 {
-                    attackRange?.Invoke();
+                    anim.SetBool("Attack", true);
+                    Vector3 direction = (target.position - transform.position).normalized;
+                    Quaternion rotation = Quaternion.LookRotation(direction);
+
+                    GameObject bullet = Instantiate(bulletPreFab, transform.position, rotation);
+                    Rigidbody bulletRigidBody = bullet.GetComponent<Rigidbody>();
+                    bulletRigidBody.velocity = direction * bulletSpeed;
+                    attackSpeedTimer = 0;
+
                 }
             }
         }
 
-        
+
     }
     private void OnTriggerStay(Collider other)
     {
@@ -120,12 +139,21 @@ public class Target : MonoBehaviour, IDamagable
                 var dist = Vector3.Distance(transform.position, target.position);
                 anim.SetBool("Attack", false);
 
-                if (dist < 6)
+                if (dist < 8 && CanAttack())
                 {
-                    attackRange?.Invoke();
+                    Vector3 direction = (target.position - transform.position).normalized;
+                    Quaternion rotation = Quaternion.LookRotation(direction);
+
+                    GameObject bullet = Instantiate(bulletPreFab, transform.position, rotation);
+                    Rigidbody bulletRigidBody = bullet.GetComponent<Rigidbody>();
+                    bulletRigidBody.velocity = direction * bulletSpeed;
+                    anim.SetBool("Attack", true);
+                    attackSpeedTimer = 0;
+
                 }
-            }
             
+            }
+
         }
     }
     private void OnTriggerExit(Collider other)
@@ -146,6 +174,7 @@ public class Target : MonoBehaviour, IDamagable
             {
                 //enemie.speed = 3.5f;
                 enemie.SetDestination(actualWanderPoint.position);
+                anim.SetBool("Move", true);
 
             }
             else if (!wandering)
@@ -154,16 +183,17 @@ public class Target : MonoBehaviour, IDamagable
 
                 enemie.SetDestination(target.position);
                 //enemie.speed = 5f;
+                anim.SetBool("Move", true);
 
             }
         }
         else
         {
             enemie.SetDestination(transform.position);
+            anim.SetBool("Move", false);
+
         }
-        
+
 
     }
-
-
 }
