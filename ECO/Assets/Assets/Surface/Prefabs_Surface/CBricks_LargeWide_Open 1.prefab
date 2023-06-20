@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 657906365044530621}
   - component: {fileID: 1070884028656495932}
   - component: {fileID: 1542167938796626331}
+  - component: {fileID: 6216876737568394202}
   m_Layer: 0
   m_Name: bricks_largeWide
   m_TagString: Untagged
@@ -83,6 +84,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6216876737568394202
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899661077974046431}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1000, y: 1500, z: 9000}
+  m_Center: {x: 0, y: 764.32965, z: 0}
 --- !u!1 &7220231200505862713
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,5 +135,5 @@ Transform:
   m_Children:
   - {fileID: 657906365044530621}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

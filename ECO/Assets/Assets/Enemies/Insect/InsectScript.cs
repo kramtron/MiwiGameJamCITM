@@ -30,6 +30,11 @@ public class InsectScript : MonoBehaviour, IDamagable
     [SerializeField] Animator anim;
 
     [SerializeField] float bulletSpeed = 7;
+
+    [SerializeField] bool freeze = false;
+    [SerializeField] float freezeTime = 0;
+    [SerializeField] float freezeTimer = 0;
+
     public void Damage(float damage)
     {
         health -= damage;
@@ -40,6 +45,13 @@ public class InsectScript : MonoBehaviour, IDamagable
             rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
             dead = true;
         }
+    }
+    public void Freeze()
+    {
+        
+        freeze = true;
+        anim.enabled = false;
+
     }
 
     private void Start()
@@ -71,6 +83,21 @@ public class InsectScript : MonoBehaviour, IDamagable
 
         }
         attackSpeedTimer += Time.deltaTime;
+        
+
+        if (freeze)
+        {
+            freezeTimer += Time.deltaTime;
+            enemie.SetDestination(transform.position);
+            if (freezeTimer >= freezeTime)
+            {
+                freeze = false;
+                freezeTimer = 0;
+                anim.enabled = true;
+
+
+            }
+        }
     }
     private bool CanAttack() => attackSpeedTimer >= attackSpeed;
     private void Wander()
@@ -168,7 +195,7 @@ public class InsectScript : MonoBehaviour, IDamagable
 
     private void FixedUpdate()
     {
-        if (!dead)
+        if (!dead || !freeze)
         {
             if (wandering)
             {

@@ -62,8 +62,20 @@ public class Gun : MonoBehaviour
         }
         if (bulletType == Gun.BulletType.Re)
         {
+            if(gOHited.name == "Insect_animated")
+            {
+                Debug.Log("Frezeando al volador");
+                gOHited.GetComponent<InsectScript>().Freeze();
+            }
+            else if (gOHited.name == "Dummy")
+            {
+                gOHited.GetComponent<Target>().Freeze();
+                Debug.Log("Aqui no");
+
+            }
             Debug.Log("Enemigo golpeado  con Re");
             Debug.Log(gOHited.name);
+            
 
         }
         if (bulletType == Gun.BulletType.Mi)

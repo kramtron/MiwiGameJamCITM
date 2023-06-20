@@ -26,6 +26,12 @@ public class Target : MonoBehaviour, IDamagable
     private bool dead = false;
     private float deadTimer = 0;
     [SerializeField] Animator anim;
+
+    [SerializeField] bool freeze = false;
+    [SerializeField] float freezeTime = 0;
+    [SerializeField] float freezeTimer = 0;
+
+
     public void Damage(float damage)
     {
         health -= damage;
@@ -35,6 +41,13 @@ public class Target : MonoBehaviour, IDamagable
         }
     }
 
+    public void Freeze()
+    {
+
+        freeze = true;
+        anim.enabled = false;
+
+    }
     private void Start()
     {
         actualWanderPoint = wanderPoint1;
@@ -61,6 +74,19 @@ public class Target : MonoBehaviour, IDamagable
                 gameObject.SetActive(false);
             }
 
+        }
+
+        if (freeze)
+        {
+            freezeTimer += Time.deltaTime;
+            enemie.SetDestination(transform.position);
+            if (freezeTimer >= freezeTime)
+            {
+                freeze = false;
+                freezeTimer = 0;
+                anim.enabled = true;
+
+            }
         }
     }
     private void Wander()
@@ -140,7 +166,7 @@ public class Target : MonoBehaviour, IDamagable
 
     private void FixedUpdate()
     {
-        if (!dead)
+        if (!dead || !freeze)
         {
             if (wandering)
             {
