@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 7026416858092352131}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &268921365947623002
 MeshFilter:
@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 1448301971030853105}
   - component: {fileID: 7599933424809978281}
   - component: {fileID: 6456791026193830581}
+  - component: {fileID: 7114456003782766307}
   m_Layer: 0
   m_Name: Spotlight and Beam
   m_TagString: Untagged
@@ -266,14 +267,14 @@ MonoBehaviour:
   fallOffEndFromLight: 1
   attenuationEquation: 1
   attenuationCustomBlending: 0.5
-  fallOffStart: 0
+  fallOffStart: 0.24
   fallOffEnd: 6.0778804
   depthBlendDistance: 2
   cameraClippingDistance: 0.5
   glareFrontal: 0.5
   glareBehind: 0.5
   fresnelPow: 8
-  noiseMode: 0
+  noiseMode: 1
   noiseIntensity: 0.5
   noiseScaleUseGlobal: 1
   noiseScaleLocal: 0.5
@@ -285,8 +286,8 @@ MonoBehaviour:
   _TrackChangesDuringPlaytime: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  _FadeOutBegin: -150
-  _FadeOutEnd: -200
+  _FadeOutBegin: 150
+  _FadeOutEnd: 200
 --- !u!114 &6456791026193830581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,3 +311,29 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &7114456003782766307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3157905374705543410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39f0f7e17f11f2448932da58e9b63d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alpha: 0.069
+  size: 0.0082
+  direction: 1
+  velocity: {x: 0.06, y: 0, z: 0.03}
+  speed: 0.03
+  density: 3.41
+  spawnDistanceRange:
+    m_MinValue: 0
+    m_MaxValue: 0.5897137
+  spawnMinDistance: 0
+  spawnMaxDistance: 0.7
+  cullingEnabled: 0
+  cullingMaxDistance: 10
+  m_AlphaAdditionalRuntime: 1
