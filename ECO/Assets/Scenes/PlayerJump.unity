@@ -1748,6 +1748,16 @@ PrefabInstance:
       propertyPath: ReKey
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 4191900860655405542, guid: c0f3f13bcb1f7d44aab137f5f3021d2f,
+        type: 3}
+      propertyPath: leftKey
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191900860655405542, guid: c0f3f13bcb1f7d44aab137f5f3021d2f,
+        type: 3}
+      propertyPath: rightKey
+      value: 101
+      objectReference: {fileID: 0}
     - target: {fileID: 4578572155061637520, guid: c0f3f13bcb1f7d44aab137f5f3021d2f,
         type: 3}
       propertyPath: m_Material

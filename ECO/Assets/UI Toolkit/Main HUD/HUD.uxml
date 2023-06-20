@@ -3,7 +3,7 @@
     <ui:VisualElement name="container" class="container" style="background-color: rgba(0, 0, 0, 0);">
         <ui:VisualElement name="separation" />
         <ui:VisualElement name="top" class="top" style="background-color: rgba(0, 0, 0, 0);">
-            <ui:ProgressBar value="80" name="healthbar" />
+            <ui:ProgressBar value="80" name="healthbar" style="background-color: rgba(85, 113, 130, 0);" />
         </ui:VisualElement>
         <ui:VisualElement name="middle" class="middle">
             <ui:VisualElement name="center" class="center" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
@@ -14,10 +14,10 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="down" class="down" style="background-color: rgba(0, 0, 0, 0);">
-            <ui:VisualElement name="Do" class="note" style="background-color: rgb(202, 37, 176);" />
-            <ui:VisualElement name="Re" class="note" style="background-color: rgb(234, 238, 62);" />
-            <ui:VisualElement name="Mi" class="note" style="background-color: rgb(24, 129, 166);" />
+        <ui:VisualElement name="down" class="down">
+            <ui:VisualElement name="Do" class="note note-center" style="background-image: url(&apos;project://database/Assets/Assets/UI/Notas_1.png?fileID=21300000&amp;guid=ff02b5bf8c65f4e4c915236afe4ad889&amp;type=3#Notas_1&apos;);" />
+            <ui:VisualElement name="Re" class="note note-right" style="background-image: url(&apos;project://database/Assets/Assets/UI/Notas_2.png?fileID=21300000&amp;guid=dc29f830077026a42afc6b6465f6e57d&amp;type=3#Notas_2&apos;);" />
+            <ui:VisualElement name="Mi" class="note note-left" style="background-image: url(&apos;project://database/Assets/Assets/UI/Notas_3.png?fileID=21300000&amp;guid=27460f2e01e1b404ba5e3b0205630c2a&amp;type=3#Notas_3&apos;);" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -7,7 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    enum active_note
+    {
+        DO,
+        RE,
+        MI
+    }
     UIDocument hud;
+
+    private active_note activeNote = active_note.DO;
 
     public GameObject player;
     PlayerStats stats;
@@ -15,6 +23,9 @@ public class UIManager : MonoBehaviour
     private VisualElement DO;
     private VisualElement RE;
     private VisualElement MI;
+
+    [SerializeField] private KeyCode leftKey = KeyCode.Q;
+    [SerializeField] private KeyCode rightKey = KeyCode.E;
 
     private VisualElement separation;
     private bool escActive = false;
@@ -32,6 +43,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        activeNote = active_note.DO;
         player = GameObject.FindGameObjectWithTag("Player");
         stats = player.GetComponent<PlayerStats>();
         escActive = false;
@@ -70,22 +82,19 @@ public class UIManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            DO.AddToClassList("note-active");
-            RE.RemoveFromClassList("note-active");
-            MI.RemoveFromClassList("note-active");
+            SetActiveDo();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            RE.AddToClassList("note-active");
-            DO.RemoveFromClassList("note-active");
-            MI.RemoveFromClassList("note-active");
+            SetActiveRe();
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            MI.AddToClassList("note-active");
-            RE.RemoveFromClassList("note-active");
-            DO.RemoveFromClassList("note-active");
+            SetActiveMi();
         }
+
+        SetActiveNote(activeNote);
+        
 
         healthBar.value = stats.hp;
     }
@@ -127,5 +136,83 @@ public class UIManager : MonoBehaviour
         continueButton.SetEnabled(i);
         menuButton.SetEnabled(i);
         exitButton.SetEnabled(i);
+    }
+
+    private void SetActiveNote(active_note n)
+    {
+        if (Input.GetKeyDown(leftKey))
+        {
+            switch (n)
+            {
+                case active_note.DO:
+                    SetActiveMi();
+                    break;
+                case active_note.RE:
+                    SetActiveDo();
+                    break;
+                case active_note.MI:
+                    SetActiveRe();
+                    break;
+                default:
+                    break;
+            }
+        }
+        else if (Input.GetKeyDown(rightKey))
+        {
+            switch (n)
+            {
+                case active_note.DO:
+                    SetActiveRe();
+                    break;
+                case active_note.RE:
+                    SetActiveMi();
+                    break;
+                case active_note.MI:
+                    SetActiveDo();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private void SetActiveDo()
+    {
+        CleanNoteStyles();
+        DO.AddToClassList("note-center");
+        RE.AddToClassList("note-right");
+        MI.AddToClassList("note-left");
+        activeNote = active_note.DO;
+    }
+
+    private void SetActiveRe()
+    {
+        CleanNoteStyles();
+        RE.AddToClassList("note-center");
+        DO.AddToClassList("note-left");
+        MI.AddToClassList("note-right");
+        activeNote = active_note.RE;
+    }
+
+    private void SetActiveMi()
+    {
+        CleanNoteStyles();
+        MI.AddToClassList("note-center");
+        RE.AddToClassList("note-left");
+        DO.AddToClassList("note-right");
+        activeNote = active_note.MI;
+    }
+
+    private void CleanNoteStyles()
+    {
+        DO.RemoveFromClassList("note-center");
+        RE.RemoveFromClassList("note-center");
+        MI.RemoveFromClassList("note-center");
+        DO.RemoveFromClassList("note-right");
+        RE.RemoveFromClassList("note-right");
+        MI.RemoveFromClassList("note-right");
+        DO.RemoveFromClassList("note-left");
+        RE.RemoveFromClassList("note-left");
+        MI.RemoveFromClassList("note-left");
     }
 }
