@@ -62,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
             jump();
-            playerAnim.SetBool("Jump", true);
         }
         else
         {
@@ -152,6 +151,8 @@ public class PlayerMovement : MonoBehaviour
     {
         player.AddForce(transform.up * jumpForce * 1000f, ForceMode.Impulse);
         jumpSound.Play();
+        playerAnim.SetBool("Jump", true);
+
     }
 
     private void ControlDrag()

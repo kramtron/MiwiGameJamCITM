@@ -519,7 +519,7 @@ Transform:
   m_Children:
   - {fileID: 4168826931871059592}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &4578572155061637520
 CapsuleCollider:
@@ -566,6 +566,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   dashSound: {fileID: 822084675540927328}
   jumpSound: {fileID: 2823740131192823304}
+  playerAnim: {fileID: 7288676183728899379}
 --- !u!54 &5665837127972191144
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -605,9 +606,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2baaf1f4a4111ab4387f553236e93aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftKey: 113
+  rightKey: 101
   DoKey: 49
   ReKey: 50
   MiKey: 51
+  playerAnim: {fileID: 7288676183728899379}
 --- !u!114 &-7915981313850071832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,7 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d9133aa9574754dae9719bbf82de6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 500
 --- !u!1 &7181330607317997571
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +795,8 @@ AudioSource:
   m_GameObject: {fileID: 7847084895045719289}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2499751167923944729, guid: a264311b8b7877b48a9e28d92985c304,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 6cbf77392d2d0164988aad5b16ee5074, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.677
@@ -919,7 +924,8 @@ AudioSource:
   m_GameObject: {fileID: 8731154311377700989}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2499751167923944729, guid: a264311b8b7877b48a9e28d92985c304,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 70703d9e7d88b984ca3f69b6b315becb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.65

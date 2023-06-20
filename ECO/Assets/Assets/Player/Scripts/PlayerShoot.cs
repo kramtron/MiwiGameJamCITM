@@ -26,6 +26,9 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private KeyCode ReKey;
     [SerializeField] private KeyCode MiKey;
 
+
+    [SerializeField] Animator playerAnim;
+
     private void Start()
     {
         activeNote = active_note.DO;
@@ -33,7 +36,9 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(leftKey))
+        playerAnim.SetBool("Shoot", false);
+
+        if (Input.GetKeyDown(leftKey))
         {
             switch (activeNote)
             {
@@ -77,6 +82,8 @@ public class PlayerShoot : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
+            playerAnim.SetBool("Shoot", true);
+
             shootInput?.Invoke();
         }
         if (Input.GetKeyDown(DoKey)){

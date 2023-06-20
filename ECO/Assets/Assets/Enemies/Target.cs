@@ -57,8 +57,8 @@ public class Target : MonoBehaviour, IDamagable
             enemie.isStopped = true;
             if (deadTimer >= 5)
             {
-                Destroy(gameObject);
-
+                //Destroy(gameObject);
+                gameObject.SetActive(false);
             }
 
         }
