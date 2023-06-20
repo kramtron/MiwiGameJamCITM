@@ -36,7 +36,9 @@ public class UIManager : MonoBehaviour
 
     VisualElement buttonsHolder;
 
-    ProgressBar healthBar;
+    Slider healthSlider;
+    VisualElement healthAmount;
+    Texture2D healthBar;
 
     public static Action saveEvent;
 
@@ -62,14 +64,14 @@ public class UIManager : MonoBehaviour
         menuButton = root.Q<Button>("backtomenu");
         exitButton = root.Q<Button>("exit");
 
-        healthBar = root.Q<ProgressBar>("healthbar");
+        healthSlider = root.Q<Slider>("health");
+        healthAmount = root.Q<VisualElement>("progress");
 
         continueButton.RegisterCallback<ClickEvent>(continueEvent);
         menuButton.RegisterCallback<ClickEvent>(menuEvent);
         exitButton.RegisterCallback<ClickEvent>(exitEvent);
 
         DO.AddToClassList("note-active");
-        Debug.Log(root.name);
     }
 
     private void Update()
@@ -96,7 +98,8 @@ public class UIManager : MonoBehaviour
         SetActiveNote(activeNote);
         
 
-        healthBar.value = stats.hp;
+        healthSlider.value = stats.hp;
+        healthAmount.style.width = stats.hp * 140 / 100;
     }
 
     private void continueEvent(ClickEvent ev)
