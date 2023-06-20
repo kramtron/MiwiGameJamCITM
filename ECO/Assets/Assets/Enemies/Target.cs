@@ -120,7 +120,7 @@ public class Target : MonoBehaviour, IDamagable
                 var dist = Vector3.Distance(transform.position, target.position);
                 anim.SetBool("Attack", false);
 
-                if (dist < 7)
+                if (dist < 6)
                 {
                     attackRange?.Invoke();
                 }
