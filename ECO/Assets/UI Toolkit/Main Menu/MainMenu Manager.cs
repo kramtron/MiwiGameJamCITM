@@ -44,7 +44,7 @@ public class MainMenuManager : MonoBehaviour
     }
     void creditsEvent(ClickEvent ev)
     {
-
+        SceneManager.LoadScene("Credits");
     }
     void exitEvent(ClickEvent ev)
     {

@@ -98,8 +98,8 @@ public class UIManager : MonoBehaviour
         SetActiveNote(activeNote);
         
 
-        healthSlider.value = stats.hp;
-        healthAmount.style.width = stats.hp * 140 / 100;
+        healthSlider.value = stats.hp / stats.maxHp;
+        healthAmount.style.width = stats.hp * 140 / stats.maxHp;
     }
 
     private void continueEvent(ClickEvent ev)

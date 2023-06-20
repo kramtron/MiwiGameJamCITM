@@ -7,10 +7,12 @@ public class PlayerStats : MonoBehaviour
 {
 
     public int hp = 100;
+    public int maxHp;
 
     // Start is called before the first frame update
     void Start()
     {
+        maxHp = hp;
         //EnemieAttack.damagePlayer += DamagePlayer;
     }
 
