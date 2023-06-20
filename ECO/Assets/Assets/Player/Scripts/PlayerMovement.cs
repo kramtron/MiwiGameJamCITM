@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] AudioSource dashSound;
     [SerializeField] AudioSource jumpSound;
+
+    [SerializeField] Animator playerAnim;
     private void Start()
     {
         player = GetComponent<Rigidbody>();
@@ -55,11 +57,20 @@ public class PlayerMovement : MonoBehaviour
     {
         timeSinceLastDash += Time.deltaTime;
         
+
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerCollider.height / 2 + 0.1f);
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
             jump();
+            playerAnim.SetBool("Jump", true);
         }
+        else
+        {
+            playerAnim.SetBool("Jump", false);
+
+        }
+        playerAnim.SetBool("DashAdelante", false);
+        playerAnim.SetBool("DashAtras", false);
 
         ControlDrag();
         PlayerInput();
@@ -73,6 +84,12 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalMovement != 0)
         {
             lastMovement = horizontalMovement;
+        }
+        else
+        {
+            playerAnim.SetBool("Adelante", false);
+            playerAnim.SetBool("Atras", false);
+
         }
     }
 
@@ -106,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 player.AddForce(moveDirection.normalized * movementSpeed * movementMultiplyer, ForceMode.Acceleration);
             }
+            //playerAnim.SetBool("Adelante", true);
         }
         else
         {
@@ -117,6 +135,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 player.AddForce(moveDirection.normalized * movementSpeed * movementMultiplyer * airMovMultiplier, ForceMode.Acceleration);
             }
+            
+
+        }
+        if (lastMovement <= -1) 
+        {
+            playerAnim.SetBool("Atras", true);
+        }
+        else
+        {
+            playerAnim.SetBool("Adelante", true);
         }
     }
 
@@ -156,6 +184,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     player.AddForce(-dashForceVector * airMovMultiplier * 2.2f, ForceMode.Impulse);
                 }
+            playerAnim.SetBool("DashAtras", true);
+
             }
             else
             {
@@ -167,6 +197,9 @@ public class PlayerMovement : MonoBehaviour
                 {
                     player.AddForce(dashForceVector * airMovMultiplier * 2.2f, ForceMode.Impulse);
                 }
+                playerAnim.SetBool("DashAdelante", true);
+
+
             }
             dashSound.Play();
             timeSinceLastDash = 0;
