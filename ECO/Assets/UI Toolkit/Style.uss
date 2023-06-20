@@ -90,11 +90,12 @@
     -unity-font-definition: initial;
     font-size: 12px;
     -unity-font-style: bold;
+    color: rgb(183, 183, 183);
 }
 
 .title {
     width: 100%;
-    height: 30%;
+    height: 20%;
     margin-top: 100px;
     -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e7081d85b89a1ee49b50863222b1d6e4&type=3#NotInter-Regular');
     color: rgb(255, 255, 255);
@@ -205,4 +206,16 @@
 
 .unity-base-slider {
     background-color: rgba(0, 0, 0, 0);
+}
+
+.container-left {
+    width: 100%;
+    height: 100%;
+    align-self: auto;
+    align-items: flex-end;
+}
+
+.bottom {
+    width: 100%;
+    height: 100%;
 }

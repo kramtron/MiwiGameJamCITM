@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Style.uss?fileID=7433441132597879392&amp;guid=37488f12d04e32a40b9c6abc14b93438&amp;type=3#Style" />
+    <ui:VisualElement name="container" class="container" style="background-image: url(&apos;project://database/Assets/Assets/UI/Credits.png?fileID=2800000&amp;guid=f5ca92632d6f62243b2f1515872d1a6b&amp;type=3#Credits&apos;); -unity-background-scale-mode: scale-and-crop;">
+        <ui:VisualElement name="bottom" class="bottom" style="flex-direction: column-reverse;">
+            <ui:Label tabindex="-1" text="PRESS SPACE TO RETURN" display-tooltip-when-elided="true" style="-unity-font: url(&apos;project://database/Assets/Assets/Fonts/Jost-Regular.ttf?fileID=12800000&amp;guid=3da25a45c8fba35428330aca68ecd0b8&amp;type=3#Jost-Regular&apos;); -unity-font-style: normal; -unity-font-definition: initial; color: rgb(255, 255, 255); align-items: center; -unity-text-align: upper-center; font-size: 14px; height: 10%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
