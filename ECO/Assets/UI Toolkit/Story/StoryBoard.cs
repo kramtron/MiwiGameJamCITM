@@ -15,11 +15,18 @@ public class StoryBoard : MonoBehaviour
     Label e;
     Label f;
 
+    Label space;
+
     int actual;
+
+    private bool textEnabled;
+    int textTimer;
     // Start is called before the first frame update
     void OnEnable()
     {
+        textEnabled = false;
         actual = 0;
+        textTimer = 0;
 
         menu = GetComponent<UIDocument>();
         VisualElement root = menu.rootVisualElement;
@@ -30,14 +37,22 @@ public class StoryBoard : MonoBehaviour
         d = root.Q<Label>("4");
         e = root.Q<Label>("5");
         f = root.Q<Label>("6");
+
+        space = root.Q<Label>("space");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        textTimer++;
+        if(textTimer > 300)
         {
-            switch(actual)
+            StartCoroutine(alternateOpacity());
+            textTimer = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            switch (actual)
             {
                 case 0:
                     a.AddToClassList("unenabled");
@@ -69,6 +84,22 @@ public class StoryBoard : MonoBehaviour
                     SceneManager.LoadScene("PlayerShoot");
                     break;
             }
+        }
+    }
+
+    private IEnumerator alternateOpacity()
+    {
+        yield return new WaitForSeconds(1);
+
+        if(textEnabled)
+        {
+            space.AddToClassList("unenabled");
+            textEnabled = false;
+        }
+        else
+        {
+            space.RemoveFromClassList("unenabled");
+            textEnabled = true;
         }
     }
 }
