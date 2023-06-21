@@ -9,5 +9,6 @@
             <ui:Label tabindex="-1" text=" Luckily, Bumble has managed to go unnoticed by the AI thanks to his deterrent waves and inhibitors." display-tooltip-when-elided="true" name="5" class="text-center unenabled" style="-unity-font: url(&apos;project://database/Assets/Assets/Fonts/Jost-Regular.ttf?fileID=12800000&amp;guid=3da25a45c8fba35428330aca68ecd0b8&amp;type=3#Jost-Regular&apos;); -unity-font-style: normal; -unity-font-definition: initial; color: rgb(255, 255, 255); align-items: center; -unity-text-align: upper-center; font-size: 14px;" />
             <ui:Label tabindex="-1" text="He is currently traveling between different eras without rest until he defeats it completely." display-tooltip-when-elided="true" name="6" class="text-center unenabled" style="-unity-font: url(&apos;project://database/Assets/Assets/Fonts/Jost-Regular.ttf?fileID=12800000&amp;guid=3da25a45c8fba35428330aca68ecd0b8&amp;type=3#Jost-Regular&apos;); -unity-font-style: normal; -unity-font-definition: initial; color: rgb(255, 255, 255); align-items: center; -unity-text-align: upper-center; font-size: 14px;" />
         </ui:VisualElement>
+        <ui:Label tabindex="-1" text="Press Space" display-tooltip-when-elided="true" name="space" class="jost unenabled" style="transition-duration: 1s; transition-timing-function: ease-in-out;" />
     </ui:VisualElement>
 </ui:UXML>
