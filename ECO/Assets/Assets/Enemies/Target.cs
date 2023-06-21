@@ -9,7 +9,7 @@ public class Target : MonoBehaviour, IDamagable
     public static Action attackRange;
 
     public NavMeshAgent enemie;
-    [SerializeField] Transform target;
+    private Transform target;
     [SerializeField] float health = 100f;
 
     [SerializeField] Transform temp;
@@ -31,6 +31,7 @@ public class Target : MonoBehaviour, IDamagable
     [SerializeField] float freezeTime = 0;
     [SerializeField] float freezeTimer = 0;
 
+    private GameObject player;
 
     public void Damage(float damage)
     {
@@ -50,6 +51,8 @@ public class Target : MonoBehaviour, IDamagable
     }
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        target = player.transform;
         actualWanderPoint = wanderPoint1;
 
         wandering = true;
