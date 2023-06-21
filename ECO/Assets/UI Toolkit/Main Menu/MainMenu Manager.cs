@@ -36,7 +36,7 @@ public class MainMenuManager : MonoBehaviour
 
     void playEvent(ClickEvent ev)
     {
-        SceneManager.LoadScene(playScene);
+        SceneManager.LoadScene("Story");
     }
     void continueEvent(ClickEvent ev)
     {
