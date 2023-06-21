@@ -38,9 +38,17 @@ public class UIManager : MonoBehaviour
 
     Slider healthSlider;
     VisualElement healthAmount;
-    Texture2D healthBar;
 
     public static Action saveEvent;
+
+    Label a;
+    Label b;
+    Label c;
+    Label d;
+
+    private string actualScene;
+    private bool tutorial;
+    private int actualText;
 
     // Start is called before the first frame update
     void OnEnable()
@@ -51,7 +59,6 @@ public class UIManager : MonoBehaviour
         escActive = false;
         hud = GetComponent<UIDocument>();
         VisualElement root = hud.rootVisualElement;
-        Debug.Log(root.name);
 
         DO = root.Q<VisualElement>("Do");
         RE = root.Q<VisualElement>("Re");
@@ -67,11 +74,27 @@ public class UIManager : MonoBehaviour
         healthSlider = root.Q<Slider>("health");
         healthAmount = root.Q<VisualElement>("progress");
 
+        a = root.Q<Label>("1");
+        b = root.Q<Label>("2");
+        c = root.Q<Label>("3");
+        d = root.Q<Label>("4");
+
         continueButton.RegisterCallback<ClickEvent>(continueEvent);
         menuButton.RegisterCallback<ClickEvent>(menuEvent);
         exitButton.RegisterCallback<ClickEvent>(exitEvent);
 
         DO.AddToClassList("note-active");
+
+        actualScene = SceneManager.GetActiveScene().name;
+        if (actualScene == "PlayerShoot")
+        {
+            tutorial = true;
+        }
+        else
+        {
+            a.AddToClassList("unenabled");
+            tutorial = false;
+        }
     }
 
     private void Update()
@@ -100,6 +123,40 @@ public class UIManager : MonoBehaviour
 
         healthSlider.value = stats.hp / stats.maxHp * 100;
         healthAmount.style.width = stats.hp * 140 / stats.maxHp;
+
+        if(tutorial)
+        {
+            switch(actualText)
+            {
+                case 0:
+                    if(Input.GetMouseButtonDown(0))
+                    {
+                        a.AddToClassList("unenabled");
+                        b.RemoveFromClassList("unenabled");
+                        actualText++;
+                    }
+                    break;
+                case 1:
+                    if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q))
+                    {
+                        b.AddToClassList("unenabled");
+                        c.RemoveFromClassList("unenabled");
+                        actualText++;
+                    }
+                    break;
+                case 2:
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        c.AddToClassList("unenabled");
+                        d.RemoveFromClassList("unenabled");
+                        actualText++;
+                    }
+                    break;
+                case 3:
+                    StartCoroutine(UnableLastTutorialText());
+                    break;
+            }
+        }
     }
 
     private void continueEvent(ClickEvent ev)
@@ -217,5 +274,12 @@ public class UIManager : MonoBehaviour
         DO.RemoveFromClassList("note-left");
         RE.RemoveFromClassList("note-left");
         MI.RemoveFromClassList("note-left");
+    }
+
+    private IEnumerator UnableLastTutorialText()
+    {
+        yield return new WaitForSeconds(6);
+        d.AddToClassList("unenabled");
+        actualText++;
     }
 }
