@@ -384,8 +384,8 @@ MonoBehaviour:
   _TrackChangesDuringPlaytime: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  _FadeOutBegin: 150
-  _FadeOutEnd: 200
+  _FadeOutBegin: -150
+  _FadeOutEnd: -200
 --- !u!114 &6456791026193830581
 MonoBehaviour:
   m_ObjectHideFlags: 0
