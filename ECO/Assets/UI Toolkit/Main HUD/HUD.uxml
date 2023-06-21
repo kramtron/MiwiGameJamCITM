@@ -20,6 +20,10 @@
             <ui:VisualElement name="Do" class="note note-center" style="background-image: url(&apos;project://database/Assets/Assets/UI/Do1.png?fileID=21300000&amp;guid=e4f1f42681937534fa1a175fff3c7aba&amp;type=3#Do1&apos;);" />
             <ui:VisualElement name="Re" class="note note-right" style="background-image: url(&apos;project://database/Assets/Assets/UI/Re1.png?fileID=21300000&amp;guid=96acbe74f7c3fc14f8c245c987200e8a&amp;type=3#Re1&apos;);" />
             <ui:VisualElement name="Mi" class="note note-left" style="background-image: url(&apos;project://database/Assets/Assets/UI/Mi1.png?fileID=21300000&amp;guid=459eb0551f1cc1e4a9bf9bb1094d54b7&amp;type=3#Mi1&apos;);" />
+            <ui:Label tabindex="-1" text="Left click to shoot" display-tooltip-when-elided="true" name="1" class="jost" />
+            <ui:Label tabindex="-1" text="Press E or Q key to switch between notes" display-tooltip-when-elided="true" name="2" class="jost unenabled" />
+            <ui:Label tabindex="-1" text="Right click to dash" display-tooltip-when-elided="true" name="3" class="jost unenabled" />
+            <ui:Label tabindex="-1" text="Shoot towards a bell to create an Echo, remember it.&#10; Each note has a different effect when creating an Echo" display-tooltip-when-elided="true" name="4" class="jost unenabled" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

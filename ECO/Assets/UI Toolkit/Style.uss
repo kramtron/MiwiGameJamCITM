@@ -14,8 +14,8 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    align-items: flex-end;
-    justify-content: space-around;
+    align-items: stretch;
+    justify-content: center;
     align-self: auto;
     visibility: visible;
     overflow: visible;
@@ -232,4 +232,14 @@
     opacity: 0;
     transition-timing-function: ease-out;
     transition-duration: 1s;
+}
+
+.jost {
+    -unity-font: url('project://database/Assets/Assets/Fonts/Jost-Regular.ttf?fileID=12800000&guid=3da25a45c8fba35428330aca68ecd0b8&type=3#Jost-Regular');
+    -unity-font-style: bold;
+    -unity-font-definition: initial;
+    -unity-text-align: upper-center;
+    color: rgb(231, 231, 231);
+    position: absolute;
+    width: 100%;
 }
