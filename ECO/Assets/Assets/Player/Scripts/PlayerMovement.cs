@@ -53,6 +53,10 @@ public class PlayerMovement : MonoBehaviour
         playerCollider = GetComponent<CapsuleCollider>();
     }
     private bool CanDash() => timeSinceLastDash > timeBwDash;
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Update()
     {
         timeSinceLastDash += Time.deltaTime;

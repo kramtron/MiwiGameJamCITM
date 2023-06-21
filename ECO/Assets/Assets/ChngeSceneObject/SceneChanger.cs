@@ -19,10 +19,10 @@ public class SceneChanger : MonoBehaviour
             switch (actualScene)
             {
                 case "PlayerShoot":
-                    SceneManager.LoadScene("PlayerShoot");
+                    SceneManager.LoadScene("SecondLVL");
                     break;
                 case "SecondLVL":
-                    SceneManager.LoadScene("SecondLVL");
+                    SceneManager.LoadScene("ThirdLVL");
                     break;
                 case "ThirdLVL":
                     SceneManager.LoadScene("ThirdLVL");

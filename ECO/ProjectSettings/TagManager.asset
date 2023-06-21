@@ -8,6 +8,7 @@ TagManager:
   - Do
   - Re
   - Mi
+  - muzzle
   layers:
   - Default
   - TransparentFX

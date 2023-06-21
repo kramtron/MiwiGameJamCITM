@@ -38,6 +38,8 @@ public class Gun : MonoBehaviour
     [SerializeField] AudioSource shootReSound;
     [SerializeField] AudioSource shootMiSound;
 
+
+    
     private void Start()
     {
         PlayerShoot.shootInput += Shoot;

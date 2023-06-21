@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4683914466377268313}
   - component: {fileID: 4467400471736112642}
   - component: {fileID: 5163779402579808353}
-  - component: {fileID: 3580194105050077854}
   m_Layer: 0
   m_Name: Planta
   m_TagString: Untagged
@@ -84,28 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3580194105050077854
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2507881865308290452}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4043717980587960835, guid: 9a30d3d4e55c79844aba8ff892c42bc9, type: 3}
 --- !u!1 &7816371707020692765
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +114,7 @@ Transform:
   - {fileID: 4683914466377268313}
   - {fileID: 6701399422459335382}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6236990644005324337
 PrefabInstance:
@@ -207,7 +184,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jarron3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3196761350938595027, guid: fc5caaeb28a34bf4cbe1ec86805f3c24, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
