@@ -44,7 +44,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9811321, g: 0.9438399, b: 0.54147387, a: 1}
+  m_Color: {r: 0.10588236, g: 0.9960785, b: 0.9960785, a: 1}
   m_Intensity: 1.92
   m_Range: 22.43
   m_SpotAngle: 30
@@ -146,11 +146,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5310826755266208783}
-  - {fileID: 3441676144475476094}
   - {fileID: 3769326366203878462}
-  - {fileID: 2958804981750079318}
   - {fileID: 5457215426540961739}
+  - {fileID: 3441676144475476094}
+  - {fileID: 2958804981750079318}
+  - {fileID: 5310826755266208783}
   m_Father: {fileID: 4168826931871059592}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -261,7 +261,7 @@ Transform:
   m_Children:
   - {fileID: 4168826931871059592}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &4578572155061637520
 CapsuleCollider:
@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 500
+  maxHp: 0
 --- !u!1001 &407524839012819532
 PrefabInstance:
   m_ObjectHideFlags: 0
