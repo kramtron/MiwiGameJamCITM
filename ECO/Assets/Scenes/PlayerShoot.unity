@@ -303,6 +303,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GBridge (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6360959422301744693, guid: d931cf31e0770c045ac1016db899d771,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: afe5f1b783f7bc54fa9cf2de099477fd, type: 2}
     - target: {fileID: 7048825399924423428, guid: d931cf31e0770c045ac1016db899d771,
         type: 3}
       propertyPath: m_RootOrder
@@ -3627,7 +3632,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.033333335
+  m_VoxelSize: 0.14999999
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: def778db6c8707f49bcb55021a6d4755, type: 2}
   m_BuildHeightMesh: 0
@@ -9720,7 +9725,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.033333335
+  m_VoxelSize: 0.14999999
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: c23af110e9299634884cbf83a6fe88e2, type: 2}
   m_BuildHeightMesh: 0
@@ -13258,6 +13263,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GBridge (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6360959422301744693, guid: d931cf31e0770c045ac1016db899d771,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: afe5f1b783f7bc54fa9cf2de099477fd, type: 2}
     - target: {fileID: 7048825399924423428, guid: d931cf31e0770c045ac1016db899d771,
         type: 3}
       propertyPath: m_RootOrder
@@ -17950,8 +17960,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115857168}
   m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 95.55, y: -15.75, z: 24.74}
-  m_LocalScale: {x: 0.014821803, y: 0.006, z: 0.00255393}
+  m_LocalPosition: {x: 95.55, y: -15.75, z: 20.43}
+  m_LocalScale: {x: 0.0062916838, y: 0.006, z: 0.00255393}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 562922169}
@@ -33020,7 +33030,7 @@ PrefabInstance:
     - target: {fileID: 5969516031263314929, guid: 77a114401723b7443be902af136833af,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2399993
+      value: 1.2399992
       objectReference: {fileID: 0}
     - target: {fileID: 5969516031263314929, guid: 77a114401723b7443be902af136833af,
         type: 3}
@@ -33176,7 +33186,7 @@ PrefabInstance:
     - target: {fileID: 8036087928930190454, guid: d140f9f881c0d984b9b9ec7d413e3d63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2399993
+      value: 1.2399992
       objectReference: {fileID: 0}
     - target: {fileID: 8036087928930190454, guid: d140f9f881c0d984b9b9ec7d413e3d63,
         type: 3}
